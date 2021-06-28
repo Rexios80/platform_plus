@@ -9,3 +9,6 @@ Updated readme
 
 ## 1.0.3
 Added example
+
+## 1.0.4
+Fixed DartDoc for platform.isMobile

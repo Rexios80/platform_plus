@@ -44,6 +44,7 @@ abstract class PlatformBase {
   bool get isFuschiaWeb;
 
   /// [isWeb] || [isAndroidNative] || [isIOSNative]
+  ///
   /// Useful for knowing if things like Firebase can be used
   bool get isMobile => isWeb || isAndroidNative || isIOSNative;
 }
