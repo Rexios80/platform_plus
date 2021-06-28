@@ -3,7 +3,9 @@ import 'dart:io' as io show Platform;
 import 'package:platform_plus/platform_base.dart';
 
 class Platform extends PlatformBase {
-  const Platform();
+  static const singleton = Platform._();
+
+  const Platform._();
 
   @override
   bool get isAndroidNative => io.Platform.isAndroid;

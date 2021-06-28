@@ -3,7 +3,9 @@ import 'package:platform_plus/platform_base.dart';
 
 class Platform extends PlatformBase {
   static final platform = BrowserDetector().platform;
-  const Platform();
+  static const singleton = Platform._();
+
+  const Platform._();
 
   @override
   bool get isAndroidNative => false;
