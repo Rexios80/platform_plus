@@ -7,5 +7,7 @@ Platform Plus is a package for easily figuring out information about the platfor
 ```
 import 'package:platform_plus/platform_plus.dart';
 
-platform.isFuschiaNative;
+platform.isAndroidNative;
+platform.isAndroidWeb;
+// And every other combination
 ```
