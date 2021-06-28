@@ -1,7 +1,6 @@
 library platform_plus;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'package:platform_plus/platform_mobile.dart'
+    if (dart.library.js) 'package:platform_plus/platform_web.dart';
+
+const platform = Platform();
