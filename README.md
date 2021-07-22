@@ -19,4 +19,6 @@ import 'package:platform_plus/platform_plus.dart';
 platform.isAndroidNative;
 platform.isAndroidWeb;
 // And every other combination
+
+await platform.isPhysicalDevice();
 ```

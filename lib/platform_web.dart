@@ -42,4 +42,7 @@ class Platform extends PlatformBase {
 
   @override
   bool get isFuschiaWeb => false;
+
+  @override
+  Future<bool> isPhysicalDevice() async => true;
 }

@@ -1,5 +1,6 @@
 import 'dart:io' as io show Platform;
 
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:platform_plus/platform_base.dart';
 
 class Platform extends PlatformBase {
@@ -42,4 +43,20 @@ class Platform extends PlatformBase {
 
   @override
   bool get isFuschiaWeb => false;
+
+  @override
+  Future<bool> isPhysicalDevice() async {
+    final deviceInfo = DeviceInfoPlugin();
+
+    if (isAndroidNative) {
+      final androidInfo = await deviceInfo.androidInfo;
+      return androidInfo.isPhysicalDevice ?? true;
+    } else if (isIOSNative) {
+      final iosInfo = await deviceInfo.iosInfo;
+      return iosInfo.isPhysicalDevice;
+    } else {
+      // return true as a fallback
+      return true;
+    }
+  }
 }
