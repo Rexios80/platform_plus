@@ -1,3 +1,6 @@
+## 1.1.1
+Fixed formatting
+
 ## 1.1.0
 Added platform.isPhysicalDevice()
 

@@ -49,9 +49,9 @@ abstract class PlatformBase {
   bool get isMobile => isWeb || isAndroidNative || isIOSNative;
 
   /// On Android: DeviceInfoPlugin().androidInfo.isPhysicalDevice
-  /// 
+  ///
   /// On iOS: DeviceInfoPlugin().iosInfo.isPhysicalDevice
-  /// 
+  ///
   /// On web: true
   Future<bool> isPhysicalDevice();
 }
