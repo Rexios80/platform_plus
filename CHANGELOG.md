@@ -1,3 +1,6 @@
+## 2.0.0
+Improved the structure of the package
+
 ## 1.1.1
 Fixed formatting
 

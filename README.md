@@ -16,9 +16,9 @@ That gets really annoying so this package handles it for you.
 ```
 import 'package:platform_plus/platform_plus.dart';
 
-platform.isAndroidNative;
-platform.isAndroidWeb;
+platformPlus.isAndroidNative;
+platformPlus.isAndroidWeb;
 // And every other combination
 
-await platform.isPhysicalDevice();
+await platformPlus.isPhysicalDevice();
 ```

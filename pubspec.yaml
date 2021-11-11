@@ -1,6 +1,6 @@
 name: platform_plus
 description: Platform Plus is a package for easily figuring out information about the platform your code is running on
-version: 1.1.1
+version: 2.0.0
 homepage: https://github.com/Rexios80/platform_plus
 
 environment:
@@ -10,12 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
   browser_detector: ^2.0.0
-  device_info_plus: ^2.1.0
+  device_info_plus: ^3.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-flutter:
+  lints: ^1.0.0

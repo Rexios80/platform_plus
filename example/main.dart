@@ -1,13 +1,13 @@
 import 'package:platform_plus/platform_plus.dart';
 
 void someCode() async {
-  if (platform.isAndroidNative) {
+  if (platformPlus.isAndroidNative) {
     // Do something
-  } else if (platform.isAndroidWeb) {
+  } else if (platformPlus.isAndroidWeb) {
     // Do something else
   }
 
-  if (await platform.isPhysicalDevice()) {
+  if (await platformPlus.isPhysicalDevice()) {
     // Do something
   }
 }

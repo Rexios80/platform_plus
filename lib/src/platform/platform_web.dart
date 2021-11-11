@@ -1,41 +1,42 @@
 import 'package:browser_detector/browser_detector.dart';
-import 'package:platform_plus/platform_base.dart';
+import 'package:platform_plus/src/platform/platform_base.dart';
 
+/// Platform implementation for web
 class Platform extends PlatformBase {
-  static final platform = BrowserDetector().platform;
-  static const singleton = Platform._();
+  static final _platform = BrowserDetector().platform;
 
-  const Platform._();
+  /// Allow const construction
+  const Platform();
 
   @override
   bool get isAndroidNative => false;
 
   @override
-  bool get isAndroidWeb => platform.isAndroid;
+  bool get isAndroidWeb => _platform.isAndroid;
 
   @override
   bool get isIOSNative => false;
 
   @override
-  bool get isIOSWeb => platform.isIOS;
+  bool get isIOSWeb => _platform.isIOS;
 
   @override
   bool get isLinuxNative => false;
 
   @override
-  bool get isLinuxWeb => platform.isLinux;
+  bool get isLinuxWeb => _platform.isLinux;
 
   @override
   bool get isMacOSNative => false;
 
   @override
-  bool get isMacOSWeb => platform.isMacOS;
+  bool get isMacOSWeb => _platform.isMacOS;
 
   @override
   bool get isWindowsNative => false;
 
   @override
-  bool get isWindowsWeb => platform.isWindows;
+  bool get isWindowsWeb => _platform.isWindows;
 
   @override
   bool get isFuschiaNative => false;

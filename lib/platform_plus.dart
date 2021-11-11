@@ -1,6 +1,3 @@
 library platform_plus;
 
-import 'package:platform_plus/platform_mobile.dart'
-    if (dart.library.js) 'package:platform_plus/platform_web.dart';
-
-const platform = Platform.singleton;
+export 'src/platform_plus_base.dart';

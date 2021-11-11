@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 
+/// Base class for getting platform information
 abstract class PlatformBase {
-  /// Do not instantiate
+  /// Allow const construction
   const PlatformBase();
 
   /// [kIsWeb]
