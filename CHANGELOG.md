@@ -1,3 +1,6 @@
+## 2.1.0
+Added isUnitTest
+
 ## 2.0.0
 Improved the structure of the package
 

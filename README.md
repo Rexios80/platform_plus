@@ -13,12 +13,18 @@ That gets really annoying so this package handles it for you.
 
 ## Getting Started
 
-```
-import 'package:platform_plus/platform_plus.dart';
+```dart
+if (platformPlus.isAndroidNative) {
+  // Do something
+} else if (platformPlus.isAndroidWeb) {
+  // Do something else
+}
 
-platformPlus.isAndroidNative;
-platformPlus.isAndroidWeb;
-// And every other combination
+if (await platformPlus.isPhysicalDevice()) {
+  // Do something
+}
 
-await platformPlus.isPhysicalDevice();
+if (platformPlus.isUnitTest) {
+  // Do something
+}
 ```

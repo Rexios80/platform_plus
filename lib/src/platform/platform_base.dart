@@ -49,10 +49,15 @@ abstract class PlatformBase {
   /// Useful for knowing if things like Firebase can be used
   bool get isMobile => isWeb || isAndroidNative || isIOSNative;
 
-  /// On Android: DeviceInfoPlugin().androidInfo.isPhysicalDevice
+  /// Native: Platform.environment.containsKey('FLUTTER_TEST')
   ///
-  /// On iOS: DeviceInfoPlugin().iosInfo.isPhysicalDevice
+  /// Web: false
+  bool get isUnitTest;
+
+  /// Android: DeviceInfoPlugin().androidInfo.isPhysicalDevice
   ///
-  /// On web: true
+  /// iOS: DeviceInfoPlugin().iosInfo.isPhysicalDevice
+  ///
+  /// Web: true
   Future<bool> isPhysicalDevice();
 }

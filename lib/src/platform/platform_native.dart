@@ -45,6 +45,9 @@ class Platform extends PlatformBase {
   bool get isFuschiaWeb => false;
 
   @override
+  bool get isUnitTest => io.Platform.environment.containsKey('FLUTTER_TEST');
+
+  @override
   Future<bool> isPhysicalDevice() async {
     final deviceInfo = DeviceInfoPlugin();
 
