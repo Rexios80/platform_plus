@@ -1,8 +1,1 @@
-include: package:lints/recommended.yaml
-
-linter:
-  rules:
-    - prefer_single_quotes
-    - unawaited_futures
-    - require_trailing_commas
-    - public_member_api_docs
+include: package:rexios_lints/flutter/package.yaml
