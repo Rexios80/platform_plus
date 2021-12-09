@@ -4,9 +4,9 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:platform_plus/src/platform/platform_base.dart';
 
 /// Platform implementation for native platforms
-class Platform extends PlatformBase {
+class PlatformImpl extends Platform {
   /// Allow const construction
-  const Platform();
+  const PlatformImpl();
 
   @override
   bool get isAndroidNative => io.Platform.isAndroid;

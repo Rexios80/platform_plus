@@ -1,12 +1,12 @@
-import 'package:browser_detector/browser_detector.dart';
+import 'package:browser_detector/browser_detector.dart' hide Platform;
 import 'package:platform_plus/src/platform/platform_base.dart';
 
 /// Platform implementation for web
-class Platform extends PlatformBase {
+class PlatformImpl extends Platform {
   static final _platform = BrowserDetector().platform;
 
   /// Allow const construction
-  const Platform();
+  const PlatformImpl();
 
   @override
   bool get isAndroidNative => false;
