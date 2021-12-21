@@ -66,14 +66,14 @@ abstract class Platform {
   /// Android: DeviceInfoPlugin().androidInfo.version.sdkInt
   ///
   /// iOS: [AndroidVersionCode.none]
-  /// 
+  ///
   /// Web: [AndroidVersionCode.none]
   Future<int> get androidVersionCode;
 
   /// Android: -1
-  /// 
+  ///
   /// iOS: DeviceInfoPlugin().iosInfo.systemVersion
-  /// 
+  ///
   /// Web: -1
   Future<double> get iosVersion;
 
