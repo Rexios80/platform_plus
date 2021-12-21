@@ -61,7 +61,21 @@ abstract class Platform {
   /// iOS: DeviceInfoPlugin().iosInfo.isPhysicalDevice
   ///
   /// Web: true
-  Future<bool> isPhysicalDevice();
+  Future<bool> get isPhysicalDevice;
+
+  /// Android: DeviceInfoPlugin().androidInfo.version.sdkInt
+  ///
+  /// iOS: [AndroidVersionCode.none]
+  /// 
+  /// Web: [AndroidVersionCode.none]
+  Future<int> get androidVersionCode;
+
+  /// Android: -1
+  /// 
+  /// iOS: DeviceInfoPlugin().iosInfo.systemVersion
+  /// 
+  /// Web: -1
+  Future<double> get iosVersion;
 
   /// Create a [Platform] instance for the current platform
   factory Platform.forPlatform() => const PlatformImpl();

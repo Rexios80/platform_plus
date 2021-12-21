@@ -1,6 +1,7 @@
 import 'dart:io' as io show Platform;
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:platform_plus/platform_plus.dart';
 import 'package:platform_plus/src/platform/platform_base.dart';
 
 /// Platform implementation for native platforms
@@ -48,7 +49,7 @@ class PlatformImpl extends Platform {
   bool get isUnitTest => io.Platform.environment.containsKey('FLUTTER_TEST');
 
   @override
-  Future<bool> isPhysicalDevice() async {
+  Future<bool> get isPhysicalDevice async {
     final deviceInfo = DeviceInfoPlugin();
 
     if (isAndroidNative) {
@@ -60,6 +61,30 @@ class PlatformImpl extends Platform {
     } else {
       // return true as a fallback
       return true;
+    }
+  }
+
+  @override
+  Future<int> get androidVersionCode async {
+    final deviceInfo = DeviceInfoPlugin();
+
+    if (isAndroidNative) {
+      final androidInfo = await deviceInfo.androidInfo;
+      return androidInfo.version.sdkInt ?? AndroidVersionCode.none;
+    } else {
+      return AndroidVersionCode.none;
+    }
+  }
+
+  @override
+  Future<double> get iosVersion async {
+    final deviceInfo = DeviceInfoPlugin();
+
+    if (isIOSNative) {
+      final iosInfo = await deviceInfo.iosInfo;
+      return double.tryParse(iosInfo.systemVersion ?? '') ?? -1;
+    } else {
+      return -1;
     }
   }
 }

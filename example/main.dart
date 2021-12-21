@@ -7,11 +7,19 @@ void main() async {
     // Do something else
   }
 
-  if (await platformPlus.isPhysicalDevice()) {
+  if (await platformPlus.isPhysicalDevice) {
     // Do something
   }
 
   if (platformPlus.isUnitTest) {
+    // Do something
+  }
+
+  if ((await platformPlus.androidVersionCode) >= AndroidVersionCode.s) {
+    // Do something
+  }
+
+  if ((await platformPlus.iosVersion) >= 13) {
     // Do something
   }
 }
