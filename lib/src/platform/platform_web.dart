@@ -1,6 +1,5 @@
 import 'package:browser_detector/browser_detector.dart' hide Platform;
 import 'package:platform_plus/platform_plus.dart';
-import 'package:platform_plus/src/platform/platform_base.dart';
 
 /// Platform implementation for web
 class PlatformImpl extends Platform {

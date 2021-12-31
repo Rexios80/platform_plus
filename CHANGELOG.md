@@ -1,3 +1,6 @@
+## 2.2.1
+- Fix dartdoc generation
+
 ## 2.2.0
 - Added androidVersionCode and iosVersion
 

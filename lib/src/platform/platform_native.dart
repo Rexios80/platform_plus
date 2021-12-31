@@ -2,7 +2,6 @@ import 'dart:io' as io show Platform;
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:platform_plus/platform_plus.dart';
-import 'package:platform_plus/src/platform/platform_base.dart';
 
 /// Platform implementation for native platforms
 class PlatformImpl extends Platform {
