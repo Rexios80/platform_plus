@@ -1,19 +1,33 @@
-# platform_plus
+Platform Plus is a package for easily figuring out information about the platform your code is running on
 
-Platform Plus is a package for easily figuring out information about the platform your code is running on.
+## Features
 
-Since `dart:io` is unavailable in web apps and `dart:js` is unavailable in native apps, the only way to do platform checks is with a conditional import like this: 
+| Property           | Use-case                                            |
+| ------------------ | --------------------------------------------------- |
+| isWeb              | Any browser                                         |
+| isAndroidNative    | Android native                                      |
+| isAndroidWeb       | Android browser                                     |
+| isIOSNative        | iOS native                                          |
+| isIOSWeb           | iOS browser                                         |
+| isWindowsNative    | Windows native                                      |
+| isWindowsWeb       | Windows browser                                     |
+| isMacOSNative      | macOS native                                        |
+| isMacOSWeb         | macOS browser                                       |
+| isLinuxNative      | Linux native                                        |
+| isLinuxWeb         | Linux browser                                       |
+| isFuschiaNative    | Fuschia native                                      |
+| isFuschiaWeb       | Fuschia browser (currently unsupported)             |
+| supportsFirebase   | Web or Android native or iOS native or macOS native |
+| isUnitTest         | Running with `flutter test`                         |
+| isPhysicalDevice   | Running on a physical device (not an emulator)      |
+| androidVersionCode | Android SDK version (see AndroidVersionCode)        |
+| iosVersion         | iOS version                                         |
 
-```
-import 'package:platform_plus/platform_mobile.dart'
-    if (dart.library.js) 'package:platform_plus/platform_web.dart';
-```
-
-That gets really annoying so this package handles it for you.
-
-## Getting Started
+## Usage
 
 ```dart
+import 'package:platform_plus/platform_plus.dart';
+
 if (platformPlus.isAndroidNative) {
   // Do something
 } else if (platformPlus.isAndroidWeb) {

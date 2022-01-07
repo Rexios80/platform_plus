@@ -7,6 +7,9 @@ abstract class Platform {
   /// Allow const construction
   const Platform();
 
+  /// Create a [Platform] instance for the current platform
+  factory Platform.forPlatform() => const PlatformImpl();
+
   /// [kIsWeb]
   bool get isWeb => kIsWeb;
 
@@ -46,10 +49,9 @@ abstract class Platform {
   /// Currently unsupported
   bool get isFuschiaWeb;
 
-  /// [isWeb] || [isAndroidNative] || [isIOSNative]
-  ///
-  /// Useful for knowing if things like Firebase can be used
-  bool get isMobile => isWeb || isAndroidNative || isIOSNative;
+  /// [isWeb] || [isAndroidNative] || [isIOSNative] || [isMacOSNative]
+  bool get supportsFirebase =>
+      isWeb || isAndroidNative || isIOSNative || isMacOSNative;
 
   /// Native: Platform.environment.containsKey('FLUTTER_TEST')
   ///
@@ -76,7 +78,4 @@ abstract class Platform {
   ///
   /// Web: -1
   Future<double> get iosVersion;
-
-  /// Create a [Platform] instance for the current platform
-  factory Platform.forPlatform() => const PlatformImpl();
 }

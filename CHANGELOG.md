@@ -1,3 +1,7 @@
+## 2.3.0
+- Changed isMobile to supportsFirebase
+- Updated documentation
+
 ## 2.2.1
 - Fix dartdoc generation
 

@@ -2,6 +2,8 @@
 ///
 /// https://developer.android.com/reference/android/os/Build.VERSION_CODES
 class AndroidVersionCode {
+  AndroidVersionCode._();
+
   /// -1
   static const none = -1;
 
@@ -103,6 +105,4 @@ class AndroidVersionCode {
 
   /// 32
   static const sV2 = 32;
-
-  AndroidVersionCode._();
 }
