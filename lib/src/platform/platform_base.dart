@@ -81,9 +81,9 @@ abstract class Platform {
   Future<double> get iosVersion;
 
   /// Android: IOSDevice.none
-  /// 
+  ///
   /// iOS: Parsed DeviceInfoPlugin().iosInfo.name
-  /// 
+  ///
   /// Web: IOSDevice.none
   Future<IOSDevice> get iosDevice;
 }

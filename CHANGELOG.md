@@ -1,3 +1,7 @@
+## 2.4.0
+- Added iosDevice
+- Added a flutter example project
+
 ## 2.3.0
 - Changed isMobile to supportsFirebase
 - Updated documentation
