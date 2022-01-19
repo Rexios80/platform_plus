@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:platform_plus/platform_plus.dart';
 import 'package:platform_plus/src/platform/platform_native.dart'
     if (dart.library.js) 'package:platform_plus/src/platform/platform_web.dart';
 
@@ -74,8 +75,15 @@ abstract class Platform {
 
   /// Android: -1
   ///
-  /// iOS: DeviceInfoPlugin().iosInfo.systemVersion
+  /// iOS: Parsed DeviceInfoPlugin().iosInfo.systemVersion
   ///
   /// Web: -1
   Future<double> get iosVersion;
+
+  /// Android: IOSDevice.none
+  /// 
+  /// iOS: Parsed DeviceInfoPlugin().iosInfo.name
+  /// 
+  /// Web: IOSDevice.none
+  Future<IOSDevice> get iosDevice;
 }

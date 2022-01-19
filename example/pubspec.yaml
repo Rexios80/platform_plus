@@ -1,0 +1,23 @@
+name: platform_plus_example
+description: A new Flutter project.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  platform_plus:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  rexios_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true

@@ -55,4 +55,7 @@ class PlatformImpl extends Platform {
 
   @override
   Future<double> get iosVersion async => -1;
+
+  @override
+  Future<IOSDevice> get iosDevice async => IOSDevice.none;
 }

@@ -86,4 +86,25 @@ class PlatformImpl extends Platform {
       return -1;
     }
   }
+
+  @override
+  Future<IOSDevice> get iosDevice async {
+    final deviceInfo = DeviceInfoPlugin();
+
+    if (isIOSNative) {
+      final iosInfo = await deviceInfo.iosInfo;
+      final name = iosInfo.name ?? '';
+      if (name.contains('iPod')) {
+        return IOSDevice.iPod;
+      } else if (name.contains('iPad')) {
+        return IOSDevice.iPad;
+      } else if (name.contains('iPhone')) {
+        return IOSDevice.iPhone;
+      } else {
+        return IOSDevice.none;
+      }
+    } else {
+      return IOSDevice.none;
+    }
+  }
 }

@@ -22,6 +22,7 @@ Platform Plus is a package for easily figuring out information about the platfor
 | isPhysicalDevice   | Running on a physical device (not an emulator)      |
 | androidVersionCode | Android SDK version (see AndroidVersionCode)        |
 | iosVersion         | iOS version                                         |
+| iosDevice          | The iOS device (see IOSDevice)                      |
 
 ## Usage
 
@@ -47,6 +48,10 @@ if ((await platformPlus.androidVersionCode) >= AndroidVersionCode.s) {
 }
 
 if ((await platformPlus.iosVersion) >= 13) {
+  // Do something
+}
+
+if ((await platformPlus.iosDevice) == IOSDevice.iPhone) {
   // Do something
 }
 ```
