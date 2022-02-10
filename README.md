@@ -25,32 +25,39 @@ Platform Plus is a package for easily figuring out information about the platfor
 
 ## Usage
 
+<!-- embedme readme/usage.dart -->
 ```dart
 import 'package:platform_plus/platform_plus.dart';
 
-if (platformPlus.isAndroidNative) {
-  // Do something
-} else if (platformPlus.isAndroidWeb) {
-  // Do something else
+void example() async {
+  if (platformPlus.isAndroidNative) {
+    // Do something
+  } else if (platformPlus.isAndroidWeb) {
+    // Do something else
+  }
+
+  if (await platformPlus.isPhysicalDevice) {
+    // Do something
+  }
+
+  if (platformPlus.isUnitTest) {
+    // Do something
+  }
+
+  final androidVersionCode = await platformPlus.androidVersionCode;
+  if ((androidVersionCode ?? -1) >= AndroidVersionCode.s) {
+    // Do something
+  }
+
+  final iosVersion = await platformPlus.iosVersion;
+  if ((iosVersion ?? -1) >= 13) {
+    // Do something
+  }
+
+  final iosDevice = await platformPlus.iosDevice;
+  if (iosDevice == IOSDevice.iPhone) {
+    // Do something
+  }
 }
 
-if (await platformPlus.isPhysicalDevice) {
-  // Do something
-}
-
-if (platformPlus.isUnitTest) {
-  // Do something
-}
-
-if ((await platformPlus.androidVersionCode) >= AndroidVersionCode.s) {
-  // Do something
-}
-
-if ((await platformPlus.iosVersion) >= 13) {
-  // Do something
-}
-
-if ((await platformPlus.iosDevice) == IOSDevice.iPhone) {
-  // Do something
-}
 ```

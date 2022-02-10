@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 40),
-          child: SingleChildScrollView(
+          child: Center(
             child: Column(
               children: [
                 Text(
