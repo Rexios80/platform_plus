@@ -65,44 +65,32 @@ class PlatformImpl extends Platform {
 
   @override
   Future<int?> get androidVersionCode async {
-    final deviceInfo = DeviceInfoPlugin();
+    if (!isAndroidNative) return null;
 
-    if (isAndroidNative) {
-      final androidInfo = await deviceInfo.androidInfo;
-      return androidInfo.version.sdkInt;
-    } else {
-      return null;
-    }
+    final androidInfo = await DeviceInfoPlugin().androidInfo;
+    return androidInfo.version.sdkInt;
   }
 
   @override
   Future<double?> get iosVersion async {
-    final deviceInfo = DeviceInfoPlugin();
+    if (!isIOSNative) return null;
 
-    if (isIOSNative) {
-      final iosInfo = await deviceInfo.iosInfo;
-      return double.tryParse(iosInfo.systemVersion ?? '');
-    } else {
-      return null;
-    }
+    final iosInfo = await DeviceInfoPlugin().iosInfo;
+    return double.tryParse(iosInfo.systemVersion ?? '');
   }
 
   @override
   Future<IOSDevice> get iosDevice async {
-    final deviceInfo = DeviceInfoPlugin();
+    if (!isIOSNative) return IOSDevice.none;
 
-    if (isIOSNative) {
-      final iosInfo = await deviceInfo.iosInfo;
-      final name = iosInfo.name ?? '';
-      if (name.contains('iPod')) {
-        return IOSDevice.iPod;
-      } else if (name.contains('iPad')) {
-        return IOSDevice.iPad;
-      } else if (name.contains('iPhone')) {
-        return IOSDevice.iPhone;
-      } else {
-        return IOSDevice.none;
-      }
+    final iosInfo = await DeviceInfoPlugin().iosInfo;
+    final name = iosInfo.name ?? '';
+    if (name.contains('iPod')) {
+      return IOSDevice.iPod;
+    } else if (name.contains('iPad')) {
+      return IOSDevice.iPad;
+    } else if (name.contains('iPhone')) {
+      return IOSDevice.iPhone;
     } else {
       return IOSDevice.none;
     }
