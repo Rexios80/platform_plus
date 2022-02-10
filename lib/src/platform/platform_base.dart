@@ -11,9 +11,6 @@ abstract class Platform {
   /// Create a [Platform] instance for the current platform
   factory Platform.forPlatform() => const PlatformImpl();
 
-  /// [kIsWeb]
-  bool get isWeb => kIsWeb;
-
   /// Platform.isAndroid
   bool get isAndroidNative;
 
@@ -50,9 +47,12 @@ abstract class Platform {
   /// Currently unsupported
   bool get isFuschiaWeb;
 
-  /// [isWeb] || [isAndroidNative] || [isIOSNative] || [isMacOSNative]
+  /// [kIsWeb] || [isAndroidNative] || [isIOSNative] || [isMacOSNative]
+  ///
+  /// Check https://firebase.flutter.dev to make sure the Firebase services
+  /// you're using actually support all these platforms
   bool get supportsFirebase =>
-      isWeb || isAndroidNative || isIOSNative || isMacOSNative;
+      kIsWeb || isAndroidNative || isIOSNative || isMacOSNative;
 
   /// Native: Platform.environment.containsKey('FLUTTER_TEST')
   ///
@@ -63,27 +63,21 @@ abstract class Platform {
   ///
   /// iOS: DeviceInfoPlugin().iosInfo.isPhysicalDevice
   ///
-  /// Web: true
+  /// Other platforms: true
   Future<bool> get isPhysicalDevice;
 
   /// Android: DeviceInfoPlugin().androidInfo.version.sdkInt
   ///
-  /// iOS: [AndroidVersionCode.none]
-  ///
-  /// Web: [AndroidVersionCode.none]
-  Future<int> get androidVersionCode;
+  /// Other platforms: null
+  Future<int?> get androidVersionCode;
 
-  /// Android: -1
-  ///
   /// iOS: Parsed DeviceInfoPlugin().iosInfo.systemVersion
   ///
-  /// Web: -1
-  Future<double> get iosVersion;
+  /// Other platforms: null
+  Future<double?> get iosVersion;
 
-  /// Android: IOSDevice.none
-  ///
   /// iOS: Parsed DeviceInfoPlugin().iosInfo.name
   ///
-  /// Web: IOSDevice.none
+  /// Other platforms: [IOSDevice.none]
   Future<IOSDevice> get iosDevice;
 }

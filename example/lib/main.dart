@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 40),
-          child: Center(
+          child: SingleChildScrollView(
             child: Column(
               children: [
-                Text('isWeb: ${platformPlus.isWeb}'),
                 Text(
                   'isAndroidNative: ${platformPlus.isAndroidNative}',
                 ),
@@ -53,13 +52,13 @@ class MyApp extends StatelessWidget {
                     'isPhysicalDevice: ${snap.data}',
                   ),
                 ),
-                FutureBuilder<int>(
+                FutureBuilder<int?>(
                   future: platformPlus.androidVersionCode,
                   builder: (context, snap) => Text(
                     'androidVersionCode: ${snap.data}',
                   ),
                 ),
-                FutureBuilder<double>(
+                FutureBuilder<double?>(
                   future: platformPlus.iosVersion,
                   builder: (context, snap) => Text('iosVersion: ${snap.data}'),
                 ),

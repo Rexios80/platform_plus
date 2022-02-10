@@ -51,10 +51,10 @@ class PlatformImpl extends Platform {
   Future<bool> get isPhysicalDevice async => true;
 
   @override
-  Future<int> get androidVersionCode async => AndroidVersionCode.none;
+  Future<int?> get androidVersionCode async => null;
 
   @override
-  Future<double> get iosVersion async => -1;
+  Future<double?> get iosVersion async => null;
 
   @override
   Future<IOSDevice> get iosDevice async => IOSDevice.none;

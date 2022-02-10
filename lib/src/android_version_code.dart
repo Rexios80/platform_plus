@@ -4,9 +4,6 @@
 class AndroidVersionCode {
   AndroidVersionCode._();
 
-  /// -1
-  static const none = -1;
-
   /// 1
   static const base = 1;
 

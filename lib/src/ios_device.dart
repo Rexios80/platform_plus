@@ -1,6 +1,6 @@
 /// iOS devices a Flutter application can run on
 enum IOSDevice {
-  /// none
+  /// Not an iOS device
   none,
 
   /// iPhone

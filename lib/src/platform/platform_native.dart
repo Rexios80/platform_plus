@@ -64,26 +64,26 @@ class PlatformImpl extends Platform {
   }
 
   @override
-  Future<int> get androidVersionCode async {
+  Future<int?> get androidVersionCode async {
     final deviceInfo = DeviceInfoPlugin();
 
     if (isAndroidNative) {
       final androidInfo = await deviceInfo.androidInfo;
-      return androidInfo.version.sdkInt ?? AndroidVersionCode.none;
+      return androidInfo.version.sdkInt;
     } else {
-      return AndroidVersionCode.none;
+      return null;
     }
   }
 
   @override
-  Future<double> get iosVersion async {
+  Future<double?> get iosVersion async {
     final deviceInfo = DeviceInfoPlugin();
 
     if (isIOSNative) {
       final iosInfo = await deviceInfo.iosInfo;
-      return double.tryParse(iosInfo.systemVersion ?? '') ?? -1;
+      return double.tryParse(iosInfo.systemVersion ?? '');
     } else {
-      return -1;
+      return null;
     }
   }
 

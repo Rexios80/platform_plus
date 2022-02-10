@@ -1,3 +1,8 @@
+## 3.0.0
+- Removed isWeb. Use kIsWeb instead.
+- Made androidVersionCode and iosVersion nullable
+- Updated documentation
+
 ## 2.4.0
 - Added iosDevice
 - Added a flutter example project

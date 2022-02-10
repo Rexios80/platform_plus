@@ -4,7 +4,6 @@ Platform Plus is a package for easily figuring out information about the platfor
 
 | Property           | Use-case                                            |
 | ------------------ | --------------------------------------------------- |
-| isWeb              | Any browser                                         |
 | isAndroidNative    | Android native                                      |
 | isAndroidWeb       | Android browser                                     |
 | isIOSNative        | iOS native                                          |
