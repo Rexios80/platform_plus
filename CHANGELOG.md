@@ -1,3 +1,6 @@
+## 3.1.0
+- Updated dependencies
+
 ## 3.0.0
 - Removed isWeb. Use kIsWeb instead.
 - Made androidVersionCode and iosVersion nullable
