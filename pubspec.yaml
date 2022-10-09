@@ -12,10 +12,10 @@ dependencies:
     sdk: flutter
 
   browser_detector: ^2.0.0
-  device_info_plus: ^4.0.0
+  device_info_plus: ^5.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  rexios_lints: ^3.0.0
+  rexios_lints: ^4.0.0
