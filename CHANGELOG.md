@@ -4,7 +4,8 @@
 -->
 
 ## 4.0.0
-- BREAKING: Adds async constructor so that subsequent calls can be sync
+- BREAKING: Changes call from `platformPlus` to `PlatformPlus.platform`
+- BREAKING: Adds async `PlatformPlus.platform.init()` method so that subsequent calls can be sync
 - BREAKING: Changes `IOSDevice.none` to `IOSDevice.unknown`
 - Upgrades dependencies
 - Adds `tiramisu` Android version code

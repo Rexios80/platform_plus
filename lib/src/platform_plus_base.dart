@@ -7,13 +7,12 @@ import 'package:platform_plus/src/platform_plus_native.dart'
 /// Base class for getting platform information
 abstract class PlatformPlus {
   /// The [PlatformPlus] instance for the current platform
-  /// 
+  ///
   /// Must call [init] before accessing any other properties
   static final platform = impl.PlatformPlus();
 
   /// Initialize the platform implementation so that subsequent calls can be
   /// made synchronously
-  @protected
   Future<void> init();
 
   /// Platform.isAndroid
