@@ -1,5 +1,7 @@
+<!-- TODO 
 ## NEXT
-- Adds `isTestFlight` for iOS <!-- TODO -->
+- Adds `isTestFlight` for iOS
+-->
 
 ## 4.0.0
 - BREAKING: Adds async constructor so that subsequent calls can be sync

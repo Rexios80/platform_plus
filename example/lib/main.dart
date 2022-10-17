@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:platform_plus/platform_plus.dart';
 
-void main() {
+late final PlatformPlus platform;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  platform = await PlatformPlus.platform;
   runApp(const MyApp());
 }
 
@@ -24,49 +28,24 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Text(
-                  'isAndroidNative: ${platformPlus.isAndroidNative}',
-                ),
-                Text('isAndroidWeb: ${platformPlus.isAndroidWeb}'),
-                Text('isIOSNative: ${platformPlus.isIOSNative}'),
-                Text('isIOSWeb: ${platformPlus.isIOSWeb}'),
-                Text(
-                  'isWindowsNative: ${platformPlus.isWindowsNative}',
-                ),
-                Text('isWindowsWeb: ${platformPlus.isWindowsWeb}'),
-                Text('isMacOSNative: ${platformPlus.isMacOSNative}'),
-                Text('isMacOSWeb: ${platformPlus.isMacOSWeb}'),
-                Text('isLinuxNative: ${platformPlus.isLinuxNative}'),
-                Text('isLinuxWeb: ${platformPlus.isLinuxWeb}'),
-                Text(
-                  'isFuschiaNative: ${platformPlus.isFuschiaNative}',
-                ),
-                Text('isFuschiaWeb: ${platformPlus.isFuschiaWeb}'),
-                Text(
-                  'supportsFirebase: ${platformPlus.supportsFirebase}',
-                ),
-                Text('isUnitTest: ${platformPlus.isUnitTest}'),
-                FutureBuilder<bool>(
-                  future: platformPlus.isPhysicalDevice,
-                  builder: (context, snap) => Text(
-                    'isPhysicalDevice: ${snap.data}',
-                  ),
-                ),
-                FutureBuilder<int?>(
-                  future: platformPlus.androidVersionCode,
-                  builder: (context, snap) => Text(
-                    'androidVersionCode: ${snap.data}',
-                  ),
-                ),
-                FutureBuilder<double?>(
-                  future: platformPlus.iosVersion,
-                  builder: (context, snap) => Text('iosVersion: ${snap.data}'),
-                ),
-                FutureBuilder<IOSDevice>(
-                  future: platformPlus.iosDevice,
-                  builder: (context, snap) =>
-                      Text('iosDevice: ${snap.data?.name}'),
-                ),
+                Text('isAndroidNative: ${platform.isAndroidNative}'),
+                Text('isAndroidWeb: ${platform.isAndroidWeb}'),
+                Text('isIOSNative: ${platform.isIOSNative}'),
+                Text('isIOSWeb: ${platform.isIOSWeb}'),
+                Text('isWindowsNative: ${platform.isWindowsNative}'),
+                Text('isWindowsWeb: ${platform.isWindowsWeb}'),
+                Text('isMacOSNative: ${platform.isMacOSNative}'),
+                Text('isMacOSWeb: ${platform.isMacOSWeb}'),
+                Text('isLinuxNative: ${platform.isLinuxNative}'),
+                Text('isLinuxWeb: ${platform.isLinuxWeb}'),
+                Text('isFuschiaNative: ${platform.isFuschiaNative}'),
+                Text('isFuschiaWeb: ${platform.isFuschiaWeb}'),
+                Text('supportsFirebase: ${platform.supportsFirebase}'),
+                Text('isUnitTest: ${platform.isUnitTest}'),
+                Text('isPhysicalDevice: ${platform.isPhysicalDevice}'),
+                Text('androidVersionCode: ${platform.androidVersionCode}'),
+                Text('iosVersion: ${platform.iosVersion}'),
+                Text('iosDevice: ${platform.iosDevice.name}'),
               ],
             ),
           ),

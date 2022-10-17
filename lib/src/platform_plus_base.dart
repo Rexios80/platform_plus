@@ -6,17 +6,15 @@ import 'package:platform_plus/src/platform_plus_native.dart'
 
 /// Base class for getting platform information
 abstract class PlatformPlus {
-  /// Allow const construction
-  const PlatformPlus();
-
   /// Create a [PlatformPlus] instance for the current platform
-  static Future<PlatformPlus> forPlatform() async {
+  static Future<PlatformPlus> get platform async {
     final platform = impl.PlatformPlus();
     await platform.init();
     return platform;
   }
 
   /// Initialize the platform implementation
+  @protected
   Future<void> init();
 
   /// Platform.isAndroid
