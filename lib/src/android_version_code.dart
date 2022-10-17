@@ -102,4 +102,7 @@ class AndroidVersionCode {
 
   /// 32
   static const sV2 = 32;
+
+  /// 33
+  static const tiramisu = 33;
 }

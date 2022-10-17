@@ -1,6 +1,6 @@
 name: platform_plus
 description: Platform Plus is a package for easily figuring out information about the platform your code is running on
-version: 3.1.0
+version: 4.0.0
 homepage: https://github.com/Rexios80/platform_plus
 
 environment:
