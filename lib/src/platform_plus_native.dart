@@ -1,12 +1,20 @@
 import 'dart:io' as io show Platform;
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:platform_plus/platform_plus.dart';
+import 'package:platform_plus/src/model/ios_device.dart';
+import 'package:platform_plus/src/platform_plus_base.dart' as base;
 
 /// Platform implementation for native platforms
-class PlatformImpl extends Platform {
-  /// Allow const construction
-  const PlatformImpl();
+class PlatformPlus extends base.PlatformPlus {
+  late final IosDeviceInfo _iosInfo;
+  late final AndroidDeviceInfo _androidInfo;
+
+  @override
+  Future<void> init() async {
+    final deviceInfo = DeviceInfoPlugin();
+    _iosInfo = await deviceInfo.iosInfo;
+    _androidInfo = await deviceInfo.androidInfo;
+  }
 
   @override
   bool get isAndroidNative => io.Platform.isAndroid;
@@ -48,15 +56,11 @@ class PlatformImpl extends Platform {
   bool get isUnitTest => io.Platform.environment.containsKey('FLUTTER_TEST');
 
   @override
-  Future<bool> get isPhysicalDevice async {
-    final deviceInfo = DeviceInfoPlugin();
-
+  bool get isPhysicalDevice {
     if (isAndroidNative) {
-      final androidInfo = await deviceInfo.androidInfo;
-      return androidInfo.isPhysicalDevice ?? true;
+      return _androidInfo.isPhysicalDevice ?? true;
     } else if (isIOSNative) {
-      final iosInfo = await deviceInfo.iosInfo;
-      return iosInfo.isPhysicalDevice;
+      return _iosInfo.isPhysicalDevice;
     } else {
       // return true as a fallback
       return true;
@@ -64,27 +68,22 @@ class PlatformImpl extends Platform {
   }
 
   @override
-  Future<int?> get androidVersionCode async {
+  int? get androidVersionCode {
     if (!isAndroidNative) return null;
-
-    final androidInfo = await DeviceInfoPlugin().androidInfo;
-    return androidInfo.version.sdkInt;
+    return _androidInfo.version.sdkInt;
   }
 
   @override
-  Future<double?> get iosVersion async {
+  double? get iosVersion {
     if (!isIOSNative) return null;
-
-    final iosInfo = await DeviceInfoPlugin().iosInfo;
-    return double.tryParse(iosInfo.systemVersion ?? '');
+    return double.tryParse(_iosInfo.systemVersion ?? '');
   }
 
   @override
-  Future<IOSDevice> get iosDevice async {
-    if (!isIOSNative) return IOSDevice.none;
+  IOSDevice get iosDevice {
+    if (!isIOSNative) return IOSDevice.unknown;
 
-    final iosInfo = await DeviceInfoPlugin().iosInfo;
-    final name = iosInfo.name ?? '';
+    final name = _iosInfo.name ?? '';
     if (name.contains('iPod')) {
       return IOSDevice.iPod;
     } else if (name.contains('iPad')) {
@@ -92,7 +91,7 @@ class PlatformImpl extends Platform {
     } else if (name.contains('iPhone')) {
       return IOSDevice.iPhone;
     } else {
-      return IOSDevice.none;
+      return IOSDevice.unknown;
     }
   }
 }

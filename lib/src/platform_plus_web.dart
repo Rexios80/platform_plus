@@ -1,12 +1,13 @@
 import 'package:browser_detector/browser_detector.dart' hide Platform;
-import 'package:platform_plus/platform_plus.dart';
+import 'package:platform_plus/platform_plus.dart' as base;
+import 'package:platform_plus/src/model/ios_device.dart';
 
 /// Platform implementation for web
-class PlatformImpl extends Platform {
+class PlatformPlus extends base.PlatformPlus {
   static final _platform = BrowserDetector().platform;
 
-  /// Allow const construction
-  const PlatformImpl();
+  @override
+  Future<void> init() async {}
 
   @override
   bool get isAndroidNative => false;
@@ -48,14 +49,14 @@ class PlatformImpl extends Platform {
   bool get isUnitTest => false;
 
   @override
-  Future<bool> get isPhysicalDevice async => true;
+  bool get isPhysicalDevice => true;
 
   @override
-  Future<int?> get androidVersionCode async => null;
+  int? get androidVersionCode => null;
 
   @override
-  Future<double?> get iosVersion async => null;
+  double? get iosVersion => null;
 
   @override
-  Future<IOSDevice> get iosDevice async => IOSDevice.none;
+  IOSDevice get iosDevice => IOSDevice.unknown;
 }

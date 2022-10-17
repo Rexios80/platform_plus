@@ -1,10 +1,13 @@
-# 4.0.0
+## NEXT
+- Adds `isTestFlight` for iOS <!-- TODO -->
+
+## 4.0.0
 - BREAKING: Adds async constructor so that subsequent calls can be sync
+- BREAKING: Changes `IOSDevice.none` to `IOSDevice.unknown`
 - Upgrades dependencies
-- Adds `isTestFlight` for iOS
 - Adds `tiramisu` Android version code
 
-# 3.1.0
+## 3.1.0
 - Updated dependencies
 
 ## 3.0.0
