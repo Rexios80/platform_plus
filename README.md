@@ -30,31 +30,33 @@ Platform Plus is a package for easily figuring out information about the platfor
 import 'package:platform_plus/platform_plus.dart';
 
 void example() async {
-  if (platformPlus.isAndroidNative) {
+  final platform = await PlatformPlus.platform;
+
+  if (platform.isAndroidNative) {
     // Do something
-  } else if (platformPlus.isAndroidWeb) {
+  } else if (platform.isAndroidWeb) {
     // Do something else
   }
 
-  if (await platformPlus.isPhysicalDevice) {
+  if (platform.isPhysicalDevice) {
     // Do something
   }
 
-  if (platformPlus.isUnitTest) {
+  if (platform.isUnitTest) {
     // Do something
   }
 
-  final androidVersionCode = await platformPlus.androidVersionCode;
+  final androidVersionCode = platform.androidVersionCode;
   if ((androidVersionCode ?? -1) >= AndroidVersionCode.s) {
     // Do something
   }
 
-  final iosVersion = await platformPlus.iosVersion;
+  final iosVersion = platform.iosVersion;
   if ((iosVersion ?? -1) >= 13) {
     // Do something
   }
 
-  final iosDevice = await platformPlus.iosDevice;
+  final iosDevice = platform.iosDevice;
   if (iosDevice == IOSDevice.iPhone) {
     // Do something
   }
