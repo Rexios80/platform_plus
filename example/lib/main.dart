@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:platform_plus/platform_plus.dart';
 
-late final PlatformPlus platform;
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  platform = await PlatformPlus.platform;
+  await PlatformPlus.platform.init();
   runApp(const MyApp());
 }
 
@@ -28,24 +26,36 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Text('isAndroidNative: ${platform.isAndroidNative}'),
-                Text('isAndroidWeb: ${platform.isAndroidWeb}'),
-                Text('isIOSNative: ${platform.isIOSNative}'),
-                Text('isIOSWeb: ${platform.isIOSWeb}'),
-                Text('isWindowsNative: ${platform.isWindowsNative}'),
-                Text('isWindowsWeb: ${platform.isWindowsWeb}'),
-                Text('isMacOSNative: ${platform.isMacOSNative}'),
-                Text('isMacOSWeb: ${platform.isMacOSWeb}'),
-                Text('isLinuxNative: ${platform.isLinuxNative}'),
-                Text('isLinuxWeb: ${platform.isLinuxWeb}'),
-                Text('isFuschiaNative: ${platform.isFuschiaNative}'),
-                Text('isFuschiaWeb: ${platform.isFuschiaWeb}'),
-                Text('supportsFirebase: ${platform.supportsFirebase}'),
-                Text('isUnitTest: ${platform.isUnitTest}'),
-                Text('isPhysicalDevice: ${platform.isPhysicalDevice}'),
-                Text('androidVersionCode: ${platform.androidVersionCode}'),
-                Text('iosVersion: ${platform.iosVersion}'),
-                Text('iosDevice: ${platform.iosDevice.name}'),
+                Text(
+                  'isAndroidNative: ${PlatformPlus.platform.isAndroidNative}',
+                ),
+                Text('isAndroidWeb: ${PlatformPlus.platform.isAndroidWeb}'),
+                Text('isIOSNative: ${PlatformPlus.platform.isIOSNative}'),
+                Text('isIOSWeb: ${PlatformPlus.platform.isIOSWeb}'),
+                Text(
+                  'isWindowsNative: ${PlatformPlus.platform.isWindowsNative}',
+                ),
+                Text('isWindowsWeb: ${PlatformPlus.platform.isWindowsWeb}'),
+                Text('isMacOSNative: ${PlatformPlus.platform.isMacOSNative}'),
+                Text('isMacOSWeb: ${PlatformPlus.platform.isMacOSWeb}'),
+                Text('isLinuxNative: ${PlatformPlus.platform.isLinuxNative}'),
+                Text('isLinuxWeb: ${PlatformPlus.platform.isLinuxWeb}'),
+                Text(
+                  'isFuschiaNative: ${PlatformPlus.platform.isFuschiaNative}',
+                ),
+                Text('isFuschiaWeb: ${PlatformPlus.platform.isFuschiaWeb}'),
+                Text(
+                  'supportsFirebase: ${PlatformPlus.platform.supportsFirebase}',
+                ),
+                Text('isUnitTest: ${PlatformPlus.platform.isUnitTest}'),
+                Text(
+                  'isPhysicalDevice: ${PlatformPlus.platform.isPhysicalDevice}',
+                ),
+                Text(
+                  'androidVersionCode: ${PlatformPlus.platform.androidVersionCode}',
+                ),
+                Text('iosVersion: ${PlatformPlus.platform.iosVersion}'),
+                Text('iosDevice: ${PlatformPlus.platform.iosDevice.name}'),
               ],
             ),
           ),
