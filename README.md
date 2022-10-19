@@ -22,6 +22,7 @@ Platform Plus is a package for easily figuring out information about the platfor
 | androidVersionCode | Android SDK version (see AndroidVersionCode)        |
 | iosVersion         | iOS version                                         |
 | iosDevice          | The iOS device (see IOSDevice)                      |
+| isTestFlight       | If the app was installed from TestFlight            |
 
 ## Usage
 

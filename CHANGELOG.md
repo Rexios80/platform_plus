@@ -1,7 +1,7 @@
-<!-- TODO 
-## NEXT
+## 4.1.0
 - Adds `isTestFlight` for iOS
--->
+- Upgrades dependencies
+
 
 ## 4.0.0
 - BREAKING: Changes call from `platformPlus` to `PlatformPlus.platform`

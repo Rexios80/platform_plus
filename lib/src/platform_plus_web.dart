@@ -59,4 +59,7 @@ class PlatformPlus extends base.PlatformPlus {
 
   @override
   IOSDevice get iosDevice => IOSDevice.unknown;
+
+  @override
+  bool get isTestFlight => false;
 }

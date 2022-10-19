@@ -1,16 +1,20 @@
 import 'dart:io' as io show Platform;
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:platform_plus/src/model/ios_device.dart';
 import 'package:platform_plus/src/platform_plus_base.dart' as base;
 
 /// Platform implementation for native platforms
 class PlatformPlus extends base.PlatformPlus {
+  late final PackageInfo _packageInfo;
   late final IosDeviceInfo? _iosInfo;
   late final AndroidDeviceInfo? _androidInfo;
 
   @override
   Future<void> init() async {
+    _packageInfo = await PackageInfo.fromPlatform();
+
     final deviceInfo = DeviceInfoPlugin();
     if (isIOSNative) {
       _iosInfo = await deviceInfo.iosInfo;
@@ -101,5 +105,11 @@ class PlatformPlus extends base.PlatformPlus {
     } else {
       return IOSDevice.unknown;
     }
+  }
+
+  @override
+  bool get isTestFlight {
+    if (!isIOSNative) return false;
+    return _packageInfo.installerStore == 'com.apple.testflight';
   }
 }

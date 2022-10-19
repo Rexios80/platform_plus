@@ -84,4 +84,9 @@ abstract class PlatformPlus {
   ///
   /// Other platforms: [IOSDevice.unknown]
   IOSDevice get iosDevice;
+
+  /// iOS: If the app was installed from TestFlight
+  ///
+  /// Other platforms: false
+  bool get isTestFlight;
 }
