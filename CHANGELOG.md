@@ -1,3 +1,6 @@
+## 4.2.0
+- Upgrades dependencies
+
 ## 4.1.0
 - Adds `isTestFlight` for iOS
 - Upgrades dependencies
