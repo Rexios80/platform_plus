@@ -1,3 +1,6 @@
+## 4.5.0
+- Upgrades dependencies
+
 ## 4.4.0
 - Upgrades dependencies
 
