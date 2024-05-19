@@ -81,7 +81,7 @@ abstract class PlatformPlus {
   double? get iosVersion;
 
   /// iOS: Parsed DeviceInfoPlugin().iosInfo.name
-  /// 
+  ///
   /// Web: Parsed from user agent
   ///
   /// Other platforms: [IOSDevice.unknown]

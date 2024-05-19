@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                 Text('iosVersion: ${PlatformPlus.platform.iosVersion}'),
                 Text('iosDevice: ${PlatformPlus.platform.iosDevice.name}'),
                 Text('isTestFlight: ${PlatformPlus.platform.isTestFlight}'),
-                Text('webRenderer: ${PlatformPlus.platform.webRenderer}'),
+                Text('webRenderer: ${PlatformPlus.platform.webRenderer.name}'),
               ],
             ),
           ),
