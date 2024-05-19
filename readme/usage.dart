@@ -31,4 +31,9 @@ void example() async {
   if (iosDevice == IOSDevice.iPhone) {
     // Do something
   }
+
+  final webRenderer = PlatformPlus.platform.webRenderer;
+  if (webRenderer == WebRenderer.wasm) {
+    // Do something
+  }
 }

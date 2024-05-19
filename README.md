@@ -23,10 +23,12 @@ Platform Plus is a package for easily figuring out information about the platfor
 | iosVersion         | iOS version                                         |
 | iosDevice          | The iOS device (see IOSDevice)                      |
 | isTestFlight       | If the app was installed from TestFlight            |
+| webRenderer        | The current web renderer                            |
 
 ## Usage
 
 <!-- embedme readme/usage.dart -->
+
 ```dart
 import 'package:platform_plus/platform_plus.dart';
 
@@ -59,6 +61,11 @@ void example() async {
 
   final iosDevice = PlatformPlus.platform.iosDevice;
   if (iosDevice == IOSDevice.iPhone) {
+    // Do something
+  }
+
+  final webRenderer = PlatformPlus.platform.webRenderer;
+  if (webRenderer == WebRenderer.wasm) {
     // Do something
   }
 }

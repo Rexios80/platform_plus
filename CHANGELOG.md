@@ -1,3 +1,6 @@
+## 4.8.1
+- Updates README
+
 ## 4.8.0
 - Supports WASM
 - Removes dependency on `browser_detector`
