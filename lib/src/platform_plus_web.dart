@@ -1,11 +1,11 @@
-import 'package:browser_detector/browser_detector.dart' hide Platform;
 import 'package:platform_plus/platform_plus.dart' as base;
 import 'package:platform_plus/src/model/ios_device.dart';
 import 'package:platform_plus/src/model/web_renderer.dart';
+import 'package:web/web.dart' as web;
 
 /// Platform implementation for web
 class PlatformPlus extends base.PlatformPlus {
-  static final _platform = BrowserDetector().platform;
+  final _userAgent = web.window.navigator.userAgent;
 
   @override
   Future<void> init() async {}
@@ -14,37 +14,45 @@ class PlatformPlus extends base.PlatformPlus {
   bool get isAndroidNative => false;
 
   @override
-  bool get isAndroidWeb => _platform.isAndroid;
+  bool get isAndroidWeb =>
+      !RegExp(r'like android', caseSensitive: false).hasMatch(_userAgent) &&
+      RegExp(r'android', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isIOSNative => false;
 
   @override
-  bool get isIOSWeb => _platform.isIOS;
+  bool get isIOSWeb =>
+      RegExp(r'iphone|ipod|ipad', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isLinuxNative => false;
 
   @override
-  bool get isLinuxWeb => _platform.isLinux;
+  bool get isLinuxWeb =>
+      RegExp(r'linux', caseSensitive: false).hasMatch(_userAgent) &&
+      !RegExp(r'android', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isMacOSNative => false;
 
   @override
-  bool get isMacOSWeb => _platform.isMacOS;
+  bool get isMacOSWeb =>
+      RegExp(r'macintosh', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isWindowsNative => false;
 
   @override
-  bool get isWindowsWeb => _platform.isWindows;
+  bool get isWindowsWeb =>
+      RegExp(r'windows\s', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isFuschiaNative => false;
 
   @override
-  bool get isFuschiaWeb => false;
+  bool get isFuschiaWeb =>
+      RegExp(r'fuchsia\s', caseSensitive: false).hasMatch(_userAgent);
 
   @override
   bool get isUnitTest => false;
@@ -59,7 +67,17 @@ class PlatformPlus extends base.PlatformPlus {
   double? get iosVersion => null;
 
   @override
-  IOSDevice get iosDevice => IOSDevice.unknown;
+  IOSDevice get iosDevice {
+    if (RegExp(r'iphone', caseSensitive: false).hasMatch(_userAgent)) {
+      return IOSDevice.iPhone;
+    } else if (RegExp(r'ipod', caseSensitive: false).hasMatch(_userAgent)) {
+      return IOSDevice.iPad;
+    } else if (RegExp(r'ipad', caseSensitive: false).hasMatch(_userAgent)) {
+      return IOSDevice.iPod;
+    } else {
+      return IOSDevice.unknown;
+    }
+  }
 
   @override
   bool get isTestFlight => false;

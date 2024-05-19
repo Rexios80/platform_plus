@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  browser_detector:
-    dependency: transitive
-    description:
-      name: browser_detector
-      sha256: "815d6f178ac3b13a346f9c341fceff18918c0272bb9ea62de71837bc083b1535"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   characters:
     dependency: transitive
     description:
@@ -214,7 +206,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "4.7.0"
+    version: "4.8.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -304,10 +296,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "3923c89304b715fb1eb6423f017651664a03bf5f4b29983627c4da791f74a4ec"
+      sha256: "7475cb4dd713d57b6f7464c0e13f06da0d535d8b2067e188962a59bac2cf280b"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.1"
+    version: "14.2.2"
   web:
     dependency: transitive
     description:

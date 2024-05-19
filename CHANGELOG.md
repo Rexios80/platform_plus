@@ -2,6 +2,7 @@
 - Supports WASM
 - Removes dependency on `browser_detector`
 - Adds `webRenderer` getter
+- Supports `iosDevice` on web
 
 ## 4.7.0
 - Upgrades dependencies
