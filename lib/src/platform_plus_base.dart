@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:platform_plus/platform_plus.dart';
 import 'package:platform_plus/src/platform_plus_native.dart'
-    if (dart.library.js) 'package:platform_plus/src/platform_plus_web.dart'
+    if (dart.library.js_interop) 'package:platform_plus/src/platform_plus_web.dart'
     as impl;
 
 /// Base class for getting platform information
