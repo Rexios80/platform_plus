@@ -1,3 +1,8 @@
+## 4.8.0
+- Supports WASM
+- Removes dependency on `browser_detector`
+- Adds `webRenderer` getter
+
 ## 4.7.0
 - Upgrades dependencies
 

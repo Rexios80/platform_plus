@@ -1,6 +1,7 @@
 import 'package:browser_detector/browser_detector.dart' hide Platform;
 import 'package:platform_plus/platform_plus.dart' as base;
 import 'package:platform_plus/src/model/ios_device.dart';
+import 'package:platform_plus/src/model/web_renderer.dart';
 
 /// Platform implementation for web
 class PlatformPlus extends base.PlatformPlus {
@@ -62,4 +63,15 @@ class PlatformPlus extends base.PlatformPlus {
 
   @override
   bool get isTestFlight => false;
+
+  @override
+  WebRenderer get webRenderer {
+    if (const bool.fromEnvironment('FLUTTER_WEB_USE_SKIA')) {
+      return WebRenderer.skia;
+    } else if (const bool.fromEnvironment('FLUTTER_WEB_USE_SKWASM')) {
+      return WebRenderer.wasm;
+    } else {
+      return WebRenderer.html;
+    }
+  }
 }

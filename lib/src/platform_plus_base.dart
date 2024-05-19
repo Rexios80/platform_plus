@@ -89,4 +89,9 @@ abstract class PlatformPlus {
   ///
   /// Other platforms: false
   bool get isTestFlight;
+
+  /// Web: The current renderer
+  ///
+  /// Other platforms: [WebRenderer.unknown]
+  WebRenderer get webRenderer;
 }

@@ -3,6 +3,7 @@ import 'dart:io' as io show Platform;
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:platform_plus/src/model/ios_device.dart';
+import 'package:platform_plus/src/model/web_renderer.dart';
 import 'package:platform_plus/src/platform_plus_base.dart' as base;
 
 /// Platform implementation for native platforms
@@ -112,4 +113,7 @@ class PlatformPlus extends base.PlatformPlus {
     if (!isIOSNative) return false;
     return _packageInfo.installerStore == 'com.apple.testflight';
   }
+
+  @override
+  WebRenderer get webRenderer => WebRenderer.unknown;
 }
