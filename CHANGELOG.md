@@ -1,3 +1,6 @@
+## 4.8.2
+- Supports `web: 1.0.0`
+
 ## 4.8.1
 - Updates README
 
