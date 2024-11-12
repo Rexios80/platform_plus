@@ -1,3 +1,6 @@
+## 4.8.3
+- Dependency upgrades
+
 ## 4.8.2
 - Supports `web: 1.0.0`
 
