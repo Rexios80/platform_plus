@@ -1,3 +1,7 @@
+## 4.8.5
+
+- Dependency upgrades
+
 ## 4.8.4
 
 - Dependency upgrades
